@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鳳新-新生報到查詢</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* 防止出現雙重滾動條 */
+        }
+
+        .container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* 關鍵：透過負的 margin 或 top 來遮擋橫幅 */
+        iframe {
+            position: absolute;
+            top: -20px; /* 向上推移約 20~25px，視橫幅高度而定 */
+            left: 0;
+            width: 100%;
+            height: calc(100% + 20px); /* 補回被推移的高度 */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <iframe src="https://script.google.com/macros/s/AKfycby9dIOqiXj6gpXKn1PkZdw2Ncs1iwMn8aSeSGB0633Y1lVUN3nzH-ml0mJaI4uE8kSLEA/exec"></iframe>
+    </div>
+
+</body>
+</html>
