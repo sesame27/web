@@ -86,19 +86,23 @@
             font-weight: bold;
             display: none;
         }
-        /* 圖片 RWD 自適應設定 */
+        
+        /* --- 圖片 RWD 修正設定 --- */
         .bottom-img {
             margin-top: 40px;
             display: block;
+            width: 100vw;       /* 手機版：強制佔滿螢幕 100% 寬度 */
+            max-width: 100vw;
             height: auto;
-            /* 手機板預設：100% 螢幕寬度 */
-            width: 100vw; 
-            max-width: 100%; 
         }
+
         /* 電腦版設定 (螢幕寬度大於 768px 時) */
         @media (min-width: 768px) {
             .bottom-img {
-                width: 70vw;
+                width: 70vw;    /* 電腦版：強制定為螢幕寬度的 70% */
+                max-width: 70vw;
+                margin-left: auto;  /* 左右自動推擠達到置中效果 */
+                margin-right: auto;
             }
         }
     </style>
@@ -200,7 +204,7 @@
 
     <script>
         function calculateScores() {
-            // 取得各科分數 (並轉換為數字型態)
+            // 取得各科選單轉換為數字
             const chi = Number(document.getElementById('chinese').value);
             const eng = Number(document.getElementById('english').value);
             const mat = Number(document.getElementById('math').value);
@@ -209,22 +213,19 @@
             const wrt = Number(document.getElementById('writing').value);
 
             // 計算公式
-            // 數班：國文 + 英語 + 數學*2.5 + 自然*2.7 + 社會 + 寫作測驗
             const mathClassScore = chi + eng + (mat * 2.5) + (sci * 2.7) + soc + wrt;
-            
-            // 雙語班：國文*2.2 + 英語*2.5 + 數學 + 自然 + 社會*2.2 + 寫作測驗
             const bilingualClassScore = (chi * 2.2) + (eng * 2.5) + mat + sci + (soc * 2.2) + wrt;
 
-            // 顯示結果 (Math.round 用於處理浮點數計算可能產生的微小誤差，維持美觀，可視需求調整)
+            // 輸出結果並顯示欄位 (.toFixed(1) 可保留一位小數，使加權計分更精準)
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `數班實驗班分數：${mathClassScore.toFixed(1)} 分<br>雙語實驗班分數：${bilingualClassScore.toFixed(1)} 分`;
             resultDiv.style.display = 'block';
         }
 
         function clearForm() {
-            // 重設表單回預設第一個選項
+            // 重設表單
             document.getElementById('scoreForm').reset();
-            // 隱藏並清空結果欄
+            // 清除並隱藏結果
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = '';
             resultDiv.style.display = 'none';
