@@ -5,20 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鳳新高級中學-115新生實驗班甄選成績試算表</title>
     <style>
-        :root {
-            --primary-color: #e96d5e;
-            --primary-hover: #d25648;
-            --bg-color: #fcf6f5;
-            --card-bg: #ffffff;
-            --text-color: #333333;
-            --border-color: #dddddd;
-        }
-
         body {
-            font-family: 'Helvetica Neue', Arial, 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
             margin: 0;
             padding: 20px;
             display: flex;
@@ -26,115 +16,95 @@
             align-items: center;
             min-height: 100vh;
         }
-
         .container {
-            background-color: var(--card-bg);
+            background-color: #ffffff;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             max-width: 500px;
-            box-sizing: border-box;
-        }
-
-        h2 {
+            width: 100%;
             text-align: center;
-            color: var(--primary-color);
+        }
+        h1 {
+            color: #1a5f7a;
+            font-size: 24px;
             margin-bottom: 25px;
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--bg-color);
-            padding-bottom: 15px;
         }
-
         .form-group {
-            margin-bottom: 18px;
+            margin-bottom: 15px;
+            text-align: left;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
-
         label {
             font-weight: bold;
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        select {
-            padding: 10px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 1rem;
-            background-color: #fff;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        select:focus {
-            border-color: var(--primary-color);
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        button {
+            font-size: 16px;
             flex: 1;
-            padding: 12px;
-            font-size: 1rem;
-            font-weight: bold;
+        }
+        select {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            width: 60%;
+            box-sizing: border-box;
+        }
+        .btn-group {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
+            transition: background-color 0.2s;
+            margin: 0 10px;
         }
-
-        button:active {
-            transform: scale(0.98);
-        }
-
         .btn-calc {
-            background-color: var(--primary-color);
+            background-color: #22a6b3;
             color: white;
         }
-
         .btn-calc:hover {
-            background-color: var(--primary-hover);
+            background-color: #1b8a95;
         }
-
         .btn-clear {
-            background-color: #6c757d;
+            background-color: #95afc0;
             color: white;
         }
-
         .btn-clear:hover {
-            background-color: #5a6268;
+            background-color: #7ed6df;
+            color: #333;
         }
-
         .result-box {
-            margin-top: 25px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #22a6b3;
             padding: 15px;
-            background-color: #f8f9fa;
-            border-left: 5px solid var(--primary-color);
-            border-radius: 4px;
-            display: none;
-        }
-
-        .result-line {
-            font-size: 1.1rem;
+            margin-bottom: 25px;
+            border-radius: 0 6px 6px 0;
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.6;
             font-weight: bold;
-            margin: 5px 0;
-            color: #444;
+            display: none; /* 預設隱藏，計算後顯示 */
+        }
+        .footer-img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 15px;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h2>鳳新高級中學<br>115新生實驗班甄選成績試算表</h2>
+    <h1>鳳新高級中學<br>115新生實驗班甄選成績試算表</h1>
     
     <div class="form-group">
-        <label for="chinese">國文</label>
+        <label for="chinese">國文：</label>
         <select id="chinese">
             <option value="7">A++</option>
             <option value="6">A+</option>
@@ -147,7 +117,7 @@
     </div>
 
     <div class="form-group">
-        <label for="english">英語</label>
+        <label for="english">英語：</label>
         <select id="english">
             <option value="7">A++</option>
             <option value="6">A+</option>
@@ -160,7 +130,7 @@
     </div>
 
     <div class="form-group">
-        <label for="math">數學</label>
+        <label for="math">數學：</label>
         <select id="math">
             <option value="7">A++</option>
             <option value="6">A+</option>
@@ -173,7 +143,7 @@
     </div>
 
     <div class="form-group">
-        <label for="science">自然</label>
+        <label for="science">自然：</label>
         <select id="science">
             <option value="7">A++</option>
             <option value="6">A+</option>
@@ -186,7 +156,7 @@
     </div>
 
     <div class="form-group">
-        <label for="society">社會</label>
+        <label for="society">社會：</label>
         <select id="society">
             <option value="7">A++</option>
             <option value="6">A+</option>
@@ -199,7 +169,7 @@
     </div>
 
     <div class="form-group">
-        <label for="writing">寫作測驗</label>
+        <label for="writing">寫作測驗：</label>
         <select id="writing">
             <option value="8">六級</option>
             <option value="7">五級</option>
@@ -211,77 +181,59 @@
         </select>
     </div>
 
-    <div class="form-group">
-        <label for="gept">全民英檢</label>
-        <select id="gept">
-            <option value="0">無</option>
-            <option value="0">初級</option>
-            <option value="2">中級初試</option>
-            <option value="3">中級複試</option>
-            <option value="4">中高級初試</option>
-            <option value="5">中高級複試</option>
-            <option value="6">高級初試</option>
-            <option value="7">高級複試</option>
-            <option value="8">優級初試</option>
-            <option value="9">優級複試</option>
-        </select>
-    </div>
-
     <div class="btn-group">
-        <button type="button" class="btn-calc" onclick="calculateScores()">計算</button>
-        <button type="button" class="btn-clear" onclick="clearForm()">清除</button>
+        <button class="btn-calc" onclick="calculateScores()">計算</button>
+        <button class="btn-clear" onclick="clearForm()">清除</button>
     </div>
 
     <div class="result-box" id="resultBox">
-        <div class="result-line" id="mathClassResult"></div>
-        <div class="result-line" id="bilingualClassResult"></div>
+        <div id="mathClassResult"></div>
+        <div id="bilingualClassResult"></div>
     </div>
-     <div>
-  <img src="https://raw.githubusercontent.com/sesame27/web/refs/heads/main/%E5%9C%8B%E4%B8%89%E7%94%9F%E5%B0%88%E5%8D%80_1.jpg" alt="圖片描述" style="max-width:100%; height:auto;">
- </div>
+
+    <img src="haha.png" alt="圖示" class="footer-img">
 </div>
 
-    
 <script>
-function calculateScores() {
-    // 獲取各科選單轉換後的分數值 (浮點數以防加權計算精準度)
-    const ch = parseFloat(document.getElementById('chinese').value);
-    const en = parseFloat(document.getElementById('english').value);
-    const math = parseFloat(document.getElementById('math').value);
-    const sci = parseFloat(document.getElementById('science').value);
-    const soc = parseFloat(document.getElementById('society').value);
-    const write = parseFloat(document.getElementById('writing').value);
-    const gept = parseFloat(document.getElementById('gept').value);
+    function calculateScores() {
+        // 取得各科下拉選單的分數值 (轉為數字型態)
+        const chi = parseFloat(document.getElementById('chinese').value);
+        const eng = parseFloat(document.getElementById('english').value);
+        const mat = parseFloat(document.getElementById('math').value);
+        const sci = parseFloat(document.getElementById('science').value);
+        const soc = parseFloat(document.getElementById('society').value);
+        const wrt = parseFloat(document.getElementById('writing').value);
 
-    // 數班實驗班：國文 + 英語 + 數學*2.5 + 自然*2.7 + 社會 + 寫作測驗
-    const mathScore = ch + en + (math * 2.5) + (sci * 2.7) + soc + write;
+        // 數班實驗班分數 = 國文 + 英語 + 數學*2.5 + 自然*2.7 + 社會 + 寫作測驗
+        const mathScore = chi + eng + (mat * 2.5) + (sci * 2.7) + soc + wrt;
 
-    // 雙語實驗班：國文*2.2 + 英語*2.5 + 數學 + 自然 + 社會*2.2 + 寫作測驗 + 全民英檢
-    const bilingualScore = (ch * 2.2) + (en * 2.5) + math + sci + (soc * 2.2) + write + gept;
+        // 雙語實驗班分數 = 國文*2.2 + 英語*2.5 + 數學 + 自然 + 社會*2.2 + 寫作測驗
+        const bilingualScore = (chi * 2.2) + (eng * 2.5) + mat + sci + (soc * 2.2) + wrt;
 
-    // 顯示結果並四捨五入到小數點後兩位（避免 JavaScript 浮點數誤差，若為整數則會自動顯示整數）
-    document.getElementById('mathClassResult').innerText = `數班實驗班分數：${Number(mathScore.toFixed(2))} 分`;
-    document.getElementById('bilingualClassResult').innerText = `雙語實驗班分數：${Number(bilingualScore.toFixed(2))} 分`;
-    
-    // 展現結果區塊
-    document.getElementById('resultBox').style.display = 'block';
-}
+        // 四捨五入到小數點後第二位（避免 JavaScript 浮點數運算出錯）
+        const finalMath = Math.round(mathScore * 100) / 100;
+        const finalBilingual = Math.round(bilingualScore * 100) / 100;
 
-function clearForm() {
-    // 將所有下拉選單回復到第一個預設選項
-    document.getElementById('chinese').selectedIndex = 0;
-    document.getElementById('english').selectedIndex = 0;
-    document.getElementById('math').selectedIndex = 0;
-    document.getElementById('science').selectedIndex = 0;
-    document.getElementById('society').selectedIndex = 0;
-    document.getElementById('writing').selectedIndex = 0;
-    document.getElementById('gept').selectedIndex = 0;
+        // 顯示結果
+        document.getElementById('mathClassResult').innerText = "數班實驗班分數：" + finalMath + " 分";
+        document.getElementById('bilingualClassResult').innerText = "雙語實驗班分數：" + finalBilingual + " 分";
+        document.getElementById('resultBox').style.display = "block";
+    }
 
-    // 隱藏結果區塊並清空文字
-    document.getElementById('resultBox').style.display = 'none';
-    document.getElementById('mathClassResult').innerText = '';
-    document.getElementById('bilingualClassResult').innerText = '';
-}
+    function clearForm() {
+        // 將所有下拉選單重設回第一個選項
+        document.getElementById('chinese').selectedIndex = 0;
+        document.getElementById('english').selectedIndex = 0;
+        document.getElementById('math').selectedIndex = 0;
+        document.getElementById('science').selectedIndex = 0;
+        document.getElementById('society').selectedIndex = 0;
+        document.getElementById('writing').selectedIndex = 0;
+
+        // 隱藏結果區並清空文字
+        document.getElementById('resultBox').style.display = "none";
+        document.getElementById('mathClassResult').innerText = "";
+        document.getElementById('bilingualClassResult').innerText = "";
+    }
 </script>
 
 </body>
